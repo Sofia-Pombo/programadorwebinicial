@@ -2,3 +2,5 @@ huevos
 leche
 agua
 pan
+galletitas
+dulce de leche
