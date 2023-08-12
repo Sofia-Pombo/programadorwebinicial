@@ -2,3 +2,4 @@ agua
 pan
 galletitas
 dulce de leche
+mayonesa
