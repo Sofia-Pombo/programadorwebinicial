@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Módulo 2</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link 2</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </nav>   
+    <div class="container" style="background-color: pink;">Contenedor</div>
+    <div class="container-fluid" style="background-color: red;">Contenedor fluido</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <h3>
+                    Ejemplo con tipografía
+                    <small class="text-body-secondary">Este es un ejemplo de tipografía</small>
+                  </h3>
+            </div>
+            <div class="col-3">
+                <p class="lead">
+                    Este es otro ejemplo de tipografía.
+                  </p>
+            </div>
+            <div class="col-4">
+                <ul class="list-inline">
+                    <li class="list-inline-item">Ejemplo de lista en línea.</li>
+                    <li class="list-inline-item">Primer ítem.</li>
+                    <li class="list-inline-item">Segundo ítem.</li>
+                    <li class="list-inline-item">Tercer ítem.</li>
+                  </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="https://fakeimg.pl/250x250" class="img-thumbnail" alt="Imagen 1">
+            </div>
+            <div class="col">
+                <img src="https://fakeimg.pl/250x250" class="img-fluid" alt="Imagen 2">
+            </div>
+            <div class="col">
+                <img src="https://fakeimg.pl/250x250" class="img-fluid" alt="Imagen 3">
+            </div>
+            <div class="col">
+                <img src="https://fakeimg.pl/250x250" class="img-fluid" alt="Imagen 4">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <table class="table table-dark table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Mis gatos</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Raza/color</th>
+                            <th scope="col">Sexo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Sombra</td>
+                            <td>15</td>
+                            <td>Negro</td>
+                            <td>Hembra</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Minu</td>
+                            <td>8</td>
+                            <td>Tricolor</td>
+                            <td>Hembra</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Pipa</td>
+                            <td>5</td>
+                            <td>Negro</td>
+                            <td>Hembra</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Vito</td>
+                            <td>4</td>
+                            <td>Siamés</td>
+                            <td>Macho</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Lionel</td>
+                            <td>1</td>
+                            <td>Blanco y negro</td>
+                            <td>Macho</td>
+                        </tr>
+                        </tbody>
+                  </table>
+              </table>
+            </div>
+            <div class="col-3" style="background-color: grey; color: white;">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tu email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="mail@ejemplo.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">¡Contame sobre tus mascotas!</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary" style="background-color: black; border-color: white;">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="eca-gatos-negros_20980457_20221227101253.jpg" class="d-block w-100" alt="Sombra">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="trico dulce.JPG" class="d-block w-100" alt="Minu">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="MBT7PBACFVGIJLO4UP4Q4PBIQM (1).jpg" class="d-block w-100" alt="Pipa">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="6345f0b76a23a.webp" class="d-block w-100" alt="Vito">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="cat-crossed-arms-melts-hearts (1).jpg" class="d-block w-100" alt="Lionel">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
