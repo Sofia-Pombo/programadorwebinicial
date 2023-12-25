@@ -15,39 +15,8 @@ var loginRouter = require('./routes/admin/login');
 var adminRouter = require('./routes/admin/novedades');
 const { handlebars } = require('hbs');
 
-//pool.query("select trabajo from empleados").then(function(resultados){
-//  console.log(resultados);
-//});
-
-// var obj = {
-//  nombre: 'Ramiro',
-//  apellido: 'Perez',
-//  trabajo: 'Programador',
-//  edad: 28,
-//  salario: 95000,
-//  mail: 'ramirop@bignet.com'
-//}
-
-// pool.query("insert into empleados set ?", [obj]).then(function(resultados) {
-// console.log(resultados);
-//})
-
-//var id_emp = 16;
-//var obj = {
-//  trabajo: 'Ejecutivo de Ventas Senior'
-//}
-
-//pool.query("update empleados set ? where id_emp=?", [obj, id_emp]).then(function(resultados) {
-//  console.log(resultados);
-//});
-
-//var id_emp = 22;
-
-//pool.query("delete from empleados where id_emp=?", [id_emp]).then(function(resultados) {
-//  console.log(resultados);
-//})
-
 var app = express();
+var publico = path.join(__dirname, 'public');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -65,23 +34,23 @@ app.use(session({
   saveUninitialized: true
 }));
 
-secured = async(req,res,next) => {
- try {
-    console.log(req.session.id_usuario);
-    if(req.session.id_usuario) {
-       next();
-     } else {
-       res.redirect('/admin/login');
-     }
-   } catch(error) {
-     console.log(error);
-   }
- };
+// secured = async(req,res,next) => {
+//  try {
+//     console.log(req.session.id_usuario);
+//     if(req.session.id_usuario) {
+//        next();
+//      } else {
+//        res.redirect('/admin/login');
+//      }
+//    } catch(error) {
+//      console.log(error);
+//    }
+//  };
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter);
-app.use('/admin/novedades', secured, adminRouter);
+app.use('/admin/novedades', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

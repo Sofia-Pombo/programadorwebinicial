@@ -1,15 +1,26 @@
-<form >
-  <div class="col-md-5" style="margin: 20px">
-    <label for="usuario" class="form-label">Usuario</label>
-    <input type="text" class="form-control" id="usuario" name="usuario">
+<div class="container" style="margin: 50px auto">
+  <div class="row">
+    <div class="col-12 offset-2">
+      <h3>Ingresar</h3>
+      <form>
+        <div class="col-md-7" style="margin: 20px">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="usuario" name="usuario">
+        </div>
+        <div class="col-md-7" style="margin: 20px">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+      </form>
+      {{#if error}}
+      <p>Usuario o contraseña incorrectos.</p>
+      {{/if}}
+    </div>
   </div>
-  <div class="col-md-5" style="margin: 20px">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  <div class="row">
+    <div class="col-3 offset-8">
+      <button type="submit" class="btn btn-primary" style="--bs-btn-bg: #ff8b40; --bs-btn-border-color: white; --bs-btn-hover-bg: grey; --bs-btn-hover-border-color: white">Iniciar
+        sesión</button>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary" style="margin-top: 5px; margin-left: 20px;">Enviar</button>
-</form>
-{{#if error}}
-    <p>Usuario o contraseña incorrectos.</p>
-{{/if}}
-
+</div>

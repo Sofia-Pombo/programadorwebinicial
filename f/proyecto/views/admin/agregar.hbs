@@ -1,0 +1,32 @@
+<div class="container" style="margin:100px auto">
+  <div class="row">
+    <div class="col-5 offset-2">
+      <h4>Agregar una nueva novedad</h4>
+      <div class="col-3 text-end">
+        <p><a href="/admin/novedades" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i>
+            Volver</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7 offset-2">
+      <form action="/admin/novedades/agregar" method="post">
+        <div class="mb-8 py-2">
+          <input type="text" class="form-control" placeholder="Título" name="titulo">
+        </div>
+        <div class="mb-8 py-2">
+          <input type="text" class="form-control" placeholder="Subtítulo" name="subtitulo">
+        </div>
+        <div class="mb-8 py-2">
+          <textarea class="form-control" placeholder="Cuerpo" name="cuerpo"></textarea>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-success">Guardar <i class="fa-solid fa-check"></i></button>
+        </div>
+      </form>
+      {{#if error}}
+      <h5>{{message}}</h5>
+      {{/if}}
+    </div>
+  </div>
+</div>

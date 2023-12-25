@@ -6,7 +6,7 @@
     text-align: right;   
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
     font-family: 'Poppins';
     font-weight: 700;
 }
@@ -27,7 +27,7 @@ h1, h2, h3 {
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 p {
@@ -52,5 +52,21 @@ html {
 #card-nosotros {
     border: 10px solid #ff8b40;
     border-radius: 10px;
+}
+
+button {
+    font-family: 'Inter';
+}
+
+#navbarlayout {
+    color:  white;
+}
+
+#contactanos {
+    background-color: rgba(170,169,168, .11);
+}
+
+#visitanos {
+    background-color: white;
 }
 
