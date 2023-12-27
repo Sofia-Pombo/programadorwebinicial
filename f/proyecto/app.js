@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
 require('dotenv').config();
 var pool = require('./models/basedatos');
 var session = require('express-session');
@@ -16,7 +17,8 @@ var adminRouter = require('./routes/admin/novedades');
 const { handlebars } = require('hbs');
 
 var app = express();
-var publico = path.join(__dirname, 'public');
+//var publico = path.join(__dirname, 'public');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,31 +36,31 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// secured = async(req,res,next) => {
-//  try {
-//     console.log(req.session.id_usuario);
-//     if(req.session.id_usuario) {
-//        next();
-//      } else {
-//        res.redirect('/admin/login');
-//      }
-//    } catch(error) {
-//      console.log(error);
-//    }
-//  };
+secured = async (req, res, next) => {
+  try {
+    console.log(req.session.id_usuario);
+    if (req.session.id_usuario) {
+      next();
+    } else {
+      res.redirect('/admin/login');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter);
-app.use('/admin/novedades', adminRouter);
+app.use('/admin/novedades', secured, adminRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

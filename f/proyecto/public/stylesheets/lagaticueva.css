@@ -3,10 +3,15 @@
     background-size: cover;
     height: 85vh;
     color: white;
-    text-align: right;   
+    text-align: right;
+
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Poppins';
     font-weight: 700;
 }
@@ -17,7 +22,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #nosotros {
-    background-color: rgba(170,169,168, .11);
+    background-color: rgba(170, 169, 168, .11);
 }
 
 .card-img-top {
@@ -35,15 +40,15 @@ p {
 }
 
 .presentacion {
-    background-color: lightgrey;
-    opacity: 75%;
-    color: black;
+    color: white;
     padding: 10px;
-    border-radius: 10px;
     display: grid;
     place-items: center;
-
+    font-weight: 700;
+    font-size: 19px;
+    text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;
 }
+
 
 html {
     scroll-behavior: smooth;
@@ -58,15 +63,51 @@ button {
     font-family: 'Inter';
 }
 
-#navbarlayout {
-    color:  white;
-}
 
 #contactanos {
-    background-color: rgba(170,169,168, .11);
+    background-color: rgba(170, 169, 168, .11);
 }
 
 #visitanos {
     background-color: white;
 }
 
+.lista-novedades {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-novedades li {
+    margin: 4px 0;
+}
+
+.lista-novedades li a {
+    background-color: #fff;
+    font-family: 'Inter';
+    text-decoration: none;
+    font-size: 1.2 rem;
+    color: #a0a0a0;
+    transition: all .2s ease-in-out;
+    display: block;
+}
+
+.lista-novedades li a:hover {
+    color: #212529;
+    background-color: #dadada;
+}
+
+.lista-novedades li a img {
+    width: 120px;
+    height: 50px;
+    filter: grayscale();
+    transition: all .2s ease-in-out;
+    margin-right: 1rem;
+    opacity: 0.7;
+}
+
+.lista-novedades li a:hover img {
+    filter: none;
+    margin-right: 1.4rem;
+    opacity: 1;
+}

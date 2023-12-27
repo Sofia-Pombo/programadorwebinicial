@@ -1,25 +1,31 @@
 <div class="container" style="margin: 100px auto">
     <div class="row">
-        <div class="col-7 offset-2">
+        <div class="col-5 offset-2">
             <h4>Editar la novedad</h4>
-            <form method="post" action="/admin/novedades/editar">
-            <input type="hidden" value="{{novedad.id}}" name="id">
-            <div class="mb-8 py-2">
-                <input type="text" placeholder="Título" value="{{novedad.titulo}}" class="form-control" name="titulo">
-            </div>
-            <div class="mb-8 py-2">
-                <textarea placeholder="Subtítulo" class="form-control" name="subtitulo">{{novedad.subtitulo}}</textarea>
-            </div>
-            <div class="mb-8 py-2">
-                <textarea placeholder="Cuerpo" class="form-control" name="cuerpo">{{novedad.cuerpo}}</textarea>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-success">Guardar   <i class="fa-solid fa-check"></i></button>
-            </div>
-            </form>
-            {{#if error}}
-                <h5>{{message}}</h5>
-            {{/if}}
         </div>
+        <div class="col-2 text-end">
+            <p><a href="/admin/novedades" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i>
+                    Volver</a></p>
+        </div>
+    </div>
+    <div class="col-7 offset-2">
+    <form method="post" action="/admin/novedades/editar">
+        <input type="hidden" value="{{novedad.id}}" name="id">
+        <div class="mb-8 py-2">
+            <input type="text" placeholder="Título" value="{{novedad.titulo}}" class="form-control" name="titulo">
+        </div>
+        <div class="mb-8 py-2">
+            <textarea placeholder="Subtítulo" class="form-control" name="subtitulo">{{novedad.subtitulo}}</textarea>
+        </div>
+        <div class="mb-8 py-2">
+            <textarea placeholder="Cuerpo" class="form-control" name="cuerpo">{{novedad.cuerpo}}</textarea>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-success">Guardar <i class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+    {{#if error}}
+    <h5>{{message}}</h5>
+    {{/if}}
     </div>
 </div>

@@ -5,13 +5,13 @@ var usuariosModel = require('./../../models/usuariosModel');
 router.get('/', function (req, res, next) {
     res.render('admin/login', {
         layout: 'admin/layout',
-        persona: req.session.nombre
+        //persona: req.session.nombre
     });
 });
 
 router.post('/', async (req, res, next) => {
     try {
-        console.log(req.body);
+        //console.log(req.body);
         var usuario = req.body.usuario;
         var password = req.body.password;
 
