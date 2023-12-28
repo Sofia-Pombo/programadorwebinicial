@@ -36,11 +36,11 @@ var usersRouter = require('./routes/users');
 //  console.log(resultados);
 //});
 
-var id_emp = 22;
+//var id_emp = 22;
 
-pool.query("delete from empleados where id_emp=?", [id_emp]).then(function(resultados) {
-  console.log(resultados);
-})
+//pool.query("delete from empleados where id_emp=?", [id_emp]).then(function(resultados) {
+//  console.log(resultados);
+//})
 
 var app = express();
 

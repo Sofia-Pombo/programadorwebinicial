@@ -2,16 +2,34 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var novedadesModel = require('../models/novedadesModel');
+var cloudinary = require('cloudinary').v2;
 
 /* GET home page. */
 //router.get('/', function(req, res, next) {
 //  res.render('index', { title: 'Express' });
 //});
 
-router.get('/', async function(req, res, next) {
+router.get('/', async function (req, res, next) {
   novedades = await novedadesModel.getNovedades();
-  novedades = novedades.splice(0,5);
-  res.render('index',{
+  novedades = novedades.splice(0, 5);
+  novedades = novedades.map(novedad => {
+    if (novedad.imagen) {
+      const imagen1 = cloudinary.url(novedad.imagen, {
+        width: 460,
+        crop: 'fill'
+      });
+      return {
+      ...novedad,
+      imagen1
+    }
+     } else {
+      return {
+        ...novedad,
+        imagen1: '/images/noimage.jpg'
+      }
+    }
+  });
+  res.render('index', {
     novedades
   });
 });
