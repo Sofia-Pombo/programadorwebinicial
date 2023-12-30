@@ -29,8 +29,12 @@ router.get('/', async function (req, res, next) {
       }
     }
   });
+  
+    var message = req.query.message || '';
+  
   res.render('index', {
-    novedades
+    novedades,
+    message
   });
 });
 
@@ -59,9 +63,11 @@ router.post('/', async (req, res, next) => {
 
   var info = await transporter.sendMail(obj);
 
-  res.render('index', {
-    message: 'Mensaje enviado correctamente',
-  });
+  // res.render('index', {
+  //   message: 'Mensaje enviado correctamente',
+  // });
+
+  res.redirect('/?message=Mensaje enviado correctamente');
 
 })
 
