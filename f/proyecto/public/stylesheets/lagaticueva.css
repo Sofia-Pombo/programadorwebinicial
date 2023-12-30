@@ -73,34 +73,40 @@ button {
 }
 
 .lista-novedades {
-
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .lista-novedades li {
-    margin: 4px 0;
+    margin: 5px 0;
+    display: flex; 
+    align-items: center; 
 }
 
 .lista-novedades li a {
     background-color: #fff;
     font-family: 'Inter';
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     color: #a0a0a0;
     transition: all .2s ease-in-out;
-    display: block;
+    display: flex; 
+    align-items: center; 
 }
 
 .lista-novedades li a:hover {
     color: #212529;
     background-color: #dadada;
+    padding-left: 15px;
+    padding-right: 50px;
 }
 
 .lista-novedades li a img {
-
     transition: all .2s ease-in-out;
     margin-right: 1rem;
+    opacity: 0.8;
+    vertical-align: middle;
 }
 
 .lista-novedades li a:hover img {
@@ -108,3 +114,6 @@ button {
     margin-right: 1.4rem;
     opacity: 1;
 }
+
+
+

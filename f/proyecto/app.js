@@ -5,8 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload = require('express-fileupload');
 
-
-
 require('dotenv').config();
 var pool = require('./models/basedatos');
 var session = require('express-session');

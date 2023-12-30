@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="col-7 offset-2">
-    <form method="post" action="/admin/novedades/editar">
+    <form method="post" action="/admin/novedades/editar" enctype="multipart/form-data">
         <input type="hidden" value="{{novedad.id}}" name="id">
         <div class="mb-8 py-2">
             <input type="text" placeholder="Título" value="{{novedad.titulo}}" class="form-control" name="titulo">
@@ -25,7 +25,7 @@
                 <label>Imagen: <input type="file" name="imagen" id="imagen"></label>
             </p>
             <label><input type="checkbox" name="img_delete" id="img_delete" value="1">¿Eliminar imagen actual?</label>
-            <input type="hidden" name="img_original" value="{{novedad.imagen}}">
+            <input type="hidden" name="img_original" value="{{novedad.img_id}}">
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="submit" class="btn btn-success">Guardar <i class="fa-solid fa-check"></i></button>

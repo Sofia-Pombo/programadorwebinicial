@@ -8,23 +8,30 @@ const uploader = util.promisify(cloudinary.uploader.upload);
 const destroy = util.promisify(cloudinary.uploader.destroy);
 
 router.get('/', async function (req, res, next) {
-    var novedades = await novedadesModel.getNovedades();
+    var novedades
+    if (req.query.q === undefined) {
+        novedades = await novedadesModel.getNovedades();
+    } else {
+        novedades = await novedadesModel.buscarNovedades(req.query.q);
+    }
+
+    //var novedades = await novedadesModel.getNovedades();
 
     novedades = novedades.map(novedad => {
-        if (novedad.imagen) {
-            const imagen1 = cloudinary.image(novedad.imagen, {
+        if (novedad.img_id) {
+            const imagen = cloudinary.image(novedad.img_id, {
                 width: 100,
                 height: 100,
                 crop: 'fill'
             });
             return {
                 ...novedad,
-                imagen1
+                imagen
             }
         } else {
             return {
                 ...novedad,
-                imagen1: ''
+                imagen: ''
             }
         }
     });
@@ -32,7 +39,9 @@ router.get('/', async function (req, res, next) {
     res.render('admin/novedades', {
         layout: 'admin/layout',
         usuario: req.session.nombre,
-        novedades
+        novedades,
+        is_search: req.query.q != undefined,
+        q: req.query.q
         });
 });
 
@@ -40,8 +49,8 @@ router.get('/eliminar/:id', async (req, res, next) => {
     var id = req.params.id;
 
     let novedad = await novedadesModel.getNovedadById(id);
-    if (novedad.imagen) {
-        await (destroy(novedad.imagen));
+    if (novedad.img_id) {
+        await (destroy(novedad.img_id));
     }
     await novedadesModel.deleteNovedadesById(id);
     res.redirect('/admin/novedades')
@@ -55,16 +64,16 @@ router.get('/agregar', (req, res, next) => {
 
 router.post('/agregar', async (req, res, next) => {
     try {
-        var imagen = '';
+        var img_id = '';
         if (req.files && Object.keys(req.files).length > 0) {
-            imagen1 = req.files.imagen1;
-            imagen = (await uploader(imagen.tempFilePath)).public_id;
+            imagen = req.files.imagen;
+            img_id = (await uploader(imagen.tempFilePath)).public_id;
         }
 
         if (req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != "") {
             await novedadesModel.insertNovedad({
                 ...req.body,
-                imagen
+                img_id
             });
             res.redirect('/admin/novedades')
         } else {
@@ -93,18 +102,22 @@ router.get('/editar/:id', async (req, res, next) => {
 
 router.post('/editar', async (req, res, next) => {
     try {
-        let imagen = req.body.img_original;
+        let img_id = req.body.img_original;
         let borrar_img_vieja = false;
         if (req.body.img_delete === "1") {
-            imagen = null;
+            img_id = null;
             borrar_img_vieja = true;
         } else {
             if (req.files && Object.keys(req.files).length > 0) {
-                imagen1 = req.files.imagen;
-                imagen = (await
-                    uploader(imagen1.tempFilePath)).public_id;
+                imagen = req.files.imagen;
+                img_id = (await
+                    uploader(imagen.tempFilePath)).public_id;
                     borrar_img_vieja = true;
             }
+        }
+
+        if (borrar_img_vieja && req.body.img_original) {
+            await (destroy(req.body.img_original));
         }
 
 
@@ -112,7 +125,7 @@ router.post('/editar', async (req, res, next) => {
             titulo: req.body.titulo,
             subtitulo: req.body.subtitulo,
             cuerpo: req.body.cuerpo,
-            imagen
+            img_id
         }
         await novedadesModel.editarNovedadById(obj, req.body.id);
         res.redirect('/admin/novedades');

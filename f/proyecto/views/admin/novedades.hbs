@@ -5,15 +5,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-8">
+        <div class="col-4">
             <h3>Listado de Novedades</h3>
         </div>
-        <div class="col-4 text-end">
-            <a href="/admin/novedades/agregar" class="btn btn-success" style="--bs-btn-bg: #ff8b40; --bs-btn-border-color: white; --bs-btn-hover-bg: grey; --bs-btn-hover-border-color: white"> <i class="fa fa-plus"></i> Nuevo</a>
-            <form class="form-inline my-2 my-lg-0" action="/admin/novedades" method="get">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+        <div class="col-6">
+            <form class="form-inline my-2 my-lg-0 d-flex col-6 offset-8" action="/admin/novedades" method="get">
+                <input class="form-control mr-sm-2 flex-grow-1" type="search" placeholder="Buscar" aria-label="Search" name="q"
+                    {{#if q}}value="{{q}}"{{/if}}> 
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
             </form>
+        </div>
+        <div class="col-2 text-end">
+            <a href="/admin/novedades/agregar" class="btn btn-success"
+                style="--bs-btn-bg: #ff8b40; --bs-btn-border-color: white; --bs-btn-hover-bg: grey; --bs-btn-hover-border-color: white">
+                <i class="fa fa-plus"></i> Nuevo</a>
         </div>
     </div>
     <div class="row py-2">
@@ -29,16 +34,15 @@
                 </thead>
                 <tbody class="table-group-divider">
                     {{#each novedades}}
-                    <tr>
+                    <tr class="align-middle">
                         <th scope="row">{{id}}</th>
                         <td>{{titulo}}</td>
-                        <td>{{imagen}}</td>
+                        <td>{{{imagen}}}</td>
                         <td class="text-end">
                             <a href="/admin/novedades/editar/{{id}}" title="Editar" class="btn btn-outline-secondary">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="/admin/novedades/eliminar/{{id}}" title="Eliminar"
-                                class="btn btn-outline-danger">
+                            <a href="/admin/novedades/eliminar/{{id}}" title="Eliminar" class="btn btn-outline-danger">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
@@ -46,13 +50,17 @@
                     {{/each}}
                 </tbody>
             </table>
+            {{#if is_search}}
+                {{#unless novedades.length}}
+                   <p>No se encontraron resultados para "<strong>{{q}}</strong>"</p>
+                {{/unless}}
+            {{/if}}
         </div>
     </div>
     <div class="row">
         <div class="col">
             <p class="text-end"><a href="/admin/login/logout" class="btn btn-dark btn-sm">Cerrar
-                    sesión  <i class="fa fa-sign-out"></i></a></p>
+                    sesión <i class="fa fa-sign-out"></i></a></p>
         </div>
     </div>
 </div>
-

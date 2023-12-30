@@ -13,19 +13,19 @@ router.get('/', async function (req, res, next) {
   novedades = await novedadesModel.getNovedades();
   novedades = novedades.splice(0, 5);
   novedades = novedades.map(novedad => {
-    if (novedad.imagen) {
-      const imagen1 = cloudinary.url(novedad.imagen, {
+    if (novedad.img_id) {
+      const imagen = cloudinary.url(novedad.img_id, {
         width: 460,
         crop: 'fill'
       });
       return {
       ...novedad,
-      imagen1
+      imagen
     }
      } else {
       return {
         ...novedad,
-        imagen1: '/images/noimage.jpg'
+        imagen: '/images/noimage.jpg'
       }
     }
   });
